@@ -16,9 +16,11 @@ find_package(imgui CONFIG REQUIRED)
 find_package(OpenAL CONFIG REQUIRED)
 find_path(PNGPP_INCLUDE_DIRS "png++/color.hpp")
 
-add_executable(${PROJECT_NAME}
+add_executable(${PROJECT_NAME} WIN32
 	${PROJECT_SRC}
 )
+
+include_directories(include)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw GLEW::GLEW imgui::imgui OpenAL::OpenAL)
 target_include_directories(${PROJECT_NAME} PRIVATE ${PNGPP_INCLUDE_DIRS})
